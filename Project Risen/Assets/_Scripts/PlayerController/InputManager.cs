@@ -53,14 +53,14 @@ public class InputManager : MonoBehaviour {
                 //Swipe detected.
                 if (Mathf.Abs(sp.x - ep.x) > minDistance || Mathf.Abs(sp.y - ep.y) > minDistance)
                 {
-					isSwipe = true;
-					OnTouchDetected();
+			isSwipe = true;
+			OnTouchDetected();
                 }
                 //Touch detected.
                 else
                 {
-					isSwipe = false;
-					OnTouchDetected();
+			isSwipe = false;
+			OnTouchDetected();
                 }
             }
         }
