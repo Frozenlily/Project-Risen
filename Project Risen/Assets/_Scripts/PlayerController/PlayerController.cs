@@ -9,18 +9,20 @@ public class PlayerController : MonoBehaviour {
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
     private void Start()
     {
+        //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
     }
-    private void Update()
-    {
+    
 
-    }
+    
+    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
+    ///Upon touch detection, get touch input information from input manager.
     public void OnTouchDetection(object source, InputManager.SwipeDirections input)
     {
         PerformAction(input);
     }
-
-    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
+    
+    ///Perform action based on touch input.
     private void PerformAction (InputManager.SwipeDirections direction)
     {
         if (direction == InputManager.SwipeDirections.Tap)
