@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour {
         InputManager.TouchDetected += OnTouchDetection;
     }
     
-
-    
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
     ///Upon touch detection, get touch input information from input manager.
     public void OnTouchDetection(object source, InputManager.SwipeDirections input)
