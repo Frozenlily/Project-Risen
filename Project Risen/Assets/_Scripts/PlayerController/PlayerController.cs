@@ -61,11 +61,4 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Unleashed ultimate arts!");
         }
     }
-
-
-    private IEnumerator Move(Vector3 direction)
-    {
-        player.transform.Translate(direction);
-        yield return new WaitForSeconds(0.1f);
-    }
 }
