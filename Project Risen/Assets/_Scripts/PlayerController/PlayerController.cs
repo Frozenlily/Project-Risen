@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour 
+{
     /*--------------------------------------------------------- Variables ------------------------------------------------------------ */
     public Rigidbody2D player;
+    [SerializeField] private LevelDetails currentLevel;
     
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
     private void Start()
@@ -19,7 +21,16 @@ public class PlayerController : MonoBehaviour {
     {
         PerformAction(input);
     }
-    
+    public void OnCollisionStay2D(Collision2D collisionInfo)
+    {
+        player.constraints = RigidbodyConstraints2D.None;
+    }
+    public void OnCollisionExit2D(Collision2D collisionInfo)
+    {
+        player.constraints = RigidbodyConstraints2D.FreezePositionY;
+    }
+
+    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
     ///Perform action based on touch input.
     private void PerformAction (InputManager.SwipeDirections direction)
     {
@@ -29,18 +40,32 @@ public class PlayerController : MonoBehaviour {
         }
         if (direction == InputManager.SwipeDirections.Left)
         {
-            Debug.Log("Left");
-            player.AddForce(Vector3.left * 50f);
+            //Debug.Log("Left");
+            //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
+            player.transform.Translate(currentLevel.LaneWidth());
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
-            Debug.Log("Right");
-            player.AddForce(Vector3.right * 50f);
+            //Debug.Log("Right");
+            //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
+            player.transform.Translate(-currentLevel.LaneWidth());
         }
         else if (direction == InputManager.SwipeDirections.Up)
         {
             //Use character skill.
             Debug.Log("Use skill");
         }
+        else if (direction == InputManager.SwipeDirections.Down)
+        {
+            //Use character ultimate arts.
+            Debug.Log("Unleashed ultimate arts!");
+        }
+    }
+
+
+    private IEnumerator Move(Vector3 direction)
+    {
+        player.transform.Translate(direction);
+        yield return new WaitForSeconds(0.1f);
     }
 }
