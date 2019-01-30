@@ -35,4 +35,8 @@ public class LevelDetails : MonoBehaviour
 		Vector3 b = Camera.main.ScreenToWorldPoint(new Vector3(laneWidth, 0, 0));
 		return (a + b);
 	}
+	public Vector3 HeightFactor()
+	{
+		return Camera.main.ScreenToWorldPoint(new Vector3(0, heightFactor, 0));
+	}
 }
