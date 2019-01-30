@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         player.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
-    /*--------------------------------------------------------- Functions ------------------------------------------------------------- *
+    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
     ///Perform action based on touch input.
     private void PerformAction (InputManager.SwipeDirections direction)
     {
