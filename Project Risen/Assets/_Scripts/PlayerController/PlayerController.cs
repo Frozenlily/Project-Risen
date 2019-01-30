@@ -42,13 +42,13 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Left");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(currentLevel.LaneWidth());
+            player.transform.Translate(-currentLevel.LaneWidth());
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
             //Debug.Log("Right");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(-currentLevel.LaneWidth());
+            player.transform.Translate(currentLevel.LaneWidth());
         }
         else if (direction == InputManager.SwipeDirections.Up)
         {
