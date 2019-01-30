@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObstacleFall : MonoBehaviour {
 
-	public Rigidbody2D obstacle;
-	public float fallSpeed = 10;
+	private Rigidbody2D obstacle;
+	[SerializeField] private float fallSpeed = 10;
 
 	private void Start()
 	{
