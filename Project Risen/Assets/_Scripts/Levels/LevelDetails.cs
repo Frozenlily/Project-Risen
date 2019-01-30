@@ -26,14 +26,13 @@ public class LevelDetails : MonoBehaviour
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	public void Init()
 	{
-		Camera camm = FindObjectOfType<Camera>();
 		laneWidth = Screen.width/laneQty;
 		heightFactor = Screen.height/100;
 	}
-    public Vector3 LaneWidth()
-    {
-        Vector3 a = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        Vector3 b = Camera.main.ScreenToWorldPoint(new Vector3(laneWidth, 0, 0));
-        return (a - b);
-    }
+	public Vector3 LaneWidth()
+	{
+		Vector3 a = Camera.main.ScreenToWorldPoint(Vector3.zero);
+		Vector3 b = Camera.main.ScreenToWorldPoint(new Vector3(laneWidth, 0, 0));
+		return (a + b);
+	}
 }
