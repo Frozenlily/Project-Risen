@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour 
+public class PlayerControllerAlt : MonoBehaviour 
 {
     /*--------------------------------------------------------- Variables ------------------------------------------------------------ */
     public Rigidbody2D player;
-    [SerializeField] private LevelDetails currentLevel;
+    public int curLane;
+    [SerializeField] private LevelDetailsAlt currentLevel;
     
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
     private void Start()
     {
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
+        currentLevel = FindObjectOfType<LevelDetailsAlt>();
+        player.curLane = Mathf.Ceil(currentLevel.lanes.count / 2);
     }
     
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
@@ -42,13 +45,22 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Left");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(-currentLevel.LaneWidth);
+            if (player.curLane >= 1)
+            {
+                player.curLane -= 1;
+                player.transform = currentLevel.lanes[curLane].pos;
+            }
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
             //Debug.Log("Right");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(currentLevel.LaneWidth);
+            if (player.curLane <= currentLevel.lanes.count)
+            {
+                player.curLane += 1;
+                player.transform = currentLevel.lanes[curLane].pos;
+            }
+            
         }
         else if (direction == InputManager.SwipeDirections.Up)
         {
