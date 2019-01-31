@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelDetails : MonoBehaviour 
+public class LevelDetailsAlt : MonoBehaviour 
 {
 	/*---------------------------------------------------------- Variables ----------------------------------------------------------- */
 	public enum LevelTypes
