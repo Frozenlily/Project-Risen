@@ -6,8 +6,8 @@ public class InputManager : MonoBehaviour
 {
     /*---------------------------------------------------------- Variables ----------------------------------------------------------- */
     [SerializeField] private float minSwipe = 12f;
-    private Vector3 sp, ep; //Start Point and End Point of input.
-    private float minDistance; //Min distance required for swipes to be registered.
+	private Vector3 sp, ep; //Start Point and End Point of input.
+	private float minDistance; //Min distance required for swipes to be registered.
 	private static bool isSwipe; //Checks if input is swipe based on distance covered by action.
 
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
