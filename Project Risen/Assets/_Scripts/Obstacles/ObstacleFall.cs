@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObstacleFall : MonoBehaviour {
 
-	private Rigidbody2D obstacle;
+	private GameObject obstacle;
 	[SerializeField] private float fallSpeed = 10;
 
 	private void Start()
 	{
-		obstacle = GetComponent<Rigidbody2D>();
+		obstacle = this.gameObject;
 	}
 	private void Update () 
 	{

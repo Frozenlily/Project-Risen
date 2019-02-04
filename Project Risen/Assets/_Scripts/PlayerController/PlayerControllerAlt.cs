@@ -15,7 +15,7 @@ public class PlayerControllerAlt : MonoBehaviour
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
         currentLevel = FindObjectOfType<LevelDetailsAlt>();
-        player.curLane = Mathf.Ceil(currentLevel.lanes.count / 2);
+        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
     }
     
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
@@ -26,11 +26,11 @@ public class PlayerControllerAlt : MonoBehaviour
     }
     public void OnCollisionStay2D(Collision2D collisionInfo)
     {
-        player.constraints = RigidbodyConstraints2D.None;
+        player.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
     }
     public void OnCollisionExit2D(Collision2D collisionInfo)
     {
-        player.constraints = RigidbodyConstraints2D.FreezePositionY;
+        player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
 
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
@@ -45,20 +45,20 @@ public class PlayerControllerAlt : MonoBehaviour
         {
             //Debug.Log("Left");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            if (player.curLane >= 1)
+            if (curLane >= 1)
             {
-                player.curLane -= 1;
-                player.transform = currentLevel.lanes[curLane].pos;
+                curLane -= 1;
+                player.transform.position = new Vector3(currentLevel.lanes[curLane].pos.x, 0 ,0);
             }
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
             //Debug.Log("Right");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            if (player.curLane <= currentLevel.lanes.count)
+            if (curLane <= currentLevel.lanes.Length)
             {
-                player.curLane += 1;
-                player.transform = currentLevel.lanes[curLane].pos;
+                curLane += 1;
+                player.transform.position = new Vector3(currentLevel.lanes[curLane].pos.x, 0 ,0);
             }
             
         }

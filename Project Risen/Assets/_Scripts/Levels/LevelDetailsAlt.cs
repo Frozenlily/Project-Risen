@@ -13,7 +13,7 @@ public class LevelDetailsAlt : MonoBehaviour
 	}
 	[SerializeField] private LevelTypes levelType;
 	[SerializeField] private float levelTime;
-	[SerializeField] private float laneQty; //Number of lanes.
+	[SerializeField] private int laneQty; //Number of lanes.
   
 	public struct Lane
 	{
@@ -37,15 +37,15 @@ public class LevelDetailsAlt : MonoBehaviour
 		laneWidth = Screen.width/laneQty;
 		heightFactor = Screen.height/100;
 		
-		lanes = new Lane[laneQty]
+		lanes = new Lane[laneQty];
     
 		//Updates lane details accordingly.
-		var i= 1;
+		var i= 0;
 		foreach (Lane lane in lanes)
 		{
-			lane.num = i;
-			lane.pos = i*LaneWidth/2;
-			i++
+			lanes[i].num = (i+1);
+			lanes[i].pos = ((i+1)*LaneWidth)/2;
+			i++;
 		}
 	}
 	

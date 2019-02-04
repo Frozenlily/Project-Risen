@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 71951453}
   - component: {fileID: 71951452}
   - component: {fileID: 71951451}
-  - component: {fileID: 71951450}
   - component: {fileID: 71951449}
   m_Layer: 0
   m_Name: Ledge (2)
@@ -223,28 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
   fallSpeed: 10
---- !u!50 &71951450
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 71951447}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &71951451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -461,7 +439,6 @@ GameObject:
   - component: {fileID: 504827627}
   - component: {fileID: 504827626}
   - component: {fileID: 504827625}
-  - component: {fileID: 504827624}
   - component: {fileID: 504827623}
   m_Layer: 0
   m_Name: Ledge (4)
@@ -494,28 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
   fallSpeed: 10
---- !u!50 &504827624
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 504827621}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &504827625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -827,7 +783,6 @@ GameObject:
   - component: {fileID: 751480931}
   - component: {fileID: 751480930}
   - component: {fileID: 751480932}
-  - component: {fileID: 751480929}
   - component: {fileID: 751480933}
   m_Layer: 0
   m_Name: Ledge
@@ -849,26 +804,6 @@ Transform:
   m_Father: {fileID: 1181573642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &751480929
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751480927}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!23 &751480930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -947,7 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 751480929}
   fallSpeed: 10
 --- !u!1 &840766286
 GameObject:
@@ -1133,7 +1067,6 @@ GameObject:
   - component: {fileID: 1252206318}
   - component: {fileID: 1252206317}
   - component: {fileID: 1252206316}
-  - component: {fileID: 1252206315}
   - component: {fileID: 1252206314}
   m_Layer: 0
   m_Name: Ledge (5)
@@ -1166,28 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
   fallSpeed: 10
---- !u!50 &1252206315
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1252206312}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &1252206316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1266,7 +1178,6 @@ GameObject:
   - component: {fileID: 1402613229}
   - component: {fileID: 1402613228}
   - component: {fileID: 1402613227}
-  - component: {fileID: 1402613226}
   - component: {fileID: 1402613225}
   m_Layer: 0
   m_Name: Ledge
@@ -1299,28 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
   fallSpeed: 10
---- !u!50 &1402613226
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1402613223}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &1402613227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1398,6 +1288,7 @@ GameObject:
   - component: {fileID: 1433959377}
   - component: {fileID: 1433959374}
   - component: {fileID: 1433959378}
+  - component: {fileID: 1433959379}
   - component: {fileID: 1433959375}
   - component: {fileID: 1433959376}
   m_Layer: 0
@@ -1426,7 +1317,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 6
 --- !u!212 &1433959375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1507,13 +1398,27 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1433959373}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6564c8cc5d012e47a2c8afa18bfd299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1433959374}
-  currentLevel: {fileID: 2050670572}
+  currentLevel: {fileID: 0}
+--- !u!114 &1433959379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433959373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3794d8ea4db6c342acd6f9c32572b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1433959374}
+  curLane: 0
+  currentLevel: {fileID: 0}
 --- !u!1 &1437362821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1499,6 @@ GameObject:
   - component: {fileID: 1621663701}
   - component: {fileID: 1621663700}
   - component: {fileID: 1621663699}
-  - component: {fileID: 1621663698}
   - component: {fileID: 1621663697}
   m_Layer: 0
   m_Name: Ledge (1)
@@ -1627,28 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf80708284a7ef5409b567552edc0c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 0}
   fallSpeed: 10
---- !u!50 &1621663698
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1621663695}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!61 &1621663699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1873,7 +1756,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2050670569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2ab49fd53278f4eb46f1bbd85b1cb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b828bb1338203146bc9ba8d77ffdef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelType: 0

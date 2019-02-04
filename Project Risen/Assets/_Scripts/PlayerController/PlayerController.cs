@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionStay2D(Collision2D collisionInfo)
     {
         player.constraints = RigidbodyConstraints2D.None;
+        player.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     public void OnCollisionExit2D(Collision2D collisionInfo)
     {
