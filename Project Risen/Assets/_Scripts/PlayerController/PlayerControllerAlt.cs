@@ -48,7 +48,7 @@ public class PlayerControllerAlt : MonoBehaviour
             if (player.curLane >= 1)
             {
                 player.curLane -= 1;
-                player.transform = currentLevel.lanes[curLane].pos;
+                player.transform = currentLevel.lanes[curLane + 1].pos;
             }
         }
         else if (direction == InputManager.SwipeDirections.Right)
@@ -58,7 +58,7 @@ public class PlayerControllerAlt : MonoBehaviour
             if (player.curLane <= currentLevel.lanes.count)
             {
                 player.curLane += 1;
-                player.transform = currentLevel.lanes[curLane].pos;
+                player.transform = currentLevel.lanes[curLane + 1].pos;
             }
             
         }
