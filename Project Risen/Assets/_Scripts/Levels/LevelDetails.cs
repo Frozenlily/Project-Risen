@@ -13,7 +13,15 @@ public class LevelDetails : MonoBehaviour
 	}
 	[SerializeField] private LevelTypes levelType;
 	[SerializeField] private float levelTime;
-	[SerializeField] private float laneQty; //Number of lanes.
+	[SerializeField] private int laneQty; //Number of lanes.
+  
+	public struct Lane
+	{
+		public int num;
+		public Vector3 pos;
+	}
+	public Lane[] lanes;
+  
 	private float laneWidth; //Pixel width of lane.
 	private float heightFactor; //Unit of measurement; 0 - Bottom of Screen; 100 - Top of Screen. (Used for damage calculations)
 
@@ -28,15 +36,33 @@ public class LevelDetails : MonoBehaviour
 	{
 		laneWidth = Screen.width/laneQty;
 		heightFactor = Screen.height/100;
+		
+		lanes = new Lane[laneQty];
+    
+		//Updates lane details accordingly.
+		var i= 0;
+		foreach (Lane lane in lanes)
+		{
+			lanes[i].num = (i+1);
+			lanes[i].pos =  ((i)*LaneWidth) + (LaneWidth)/2;
+			i++;
+		}
 	}
-	public Vector3 LaneWidth()
+	
+	public Vector3 LaneWidth
 	{
-		Vector3 a = Camera.main.ScreenToWorldPoint(Vector3.zero);
-		Vector3 b = Camera.main.ScreenToWorldPoint(new Vector3(laneWidth, 0, 0));
-		return (a + b);
+		get 
+		{
+			Vector3 a = Vector3.zero;
+			Vector3 b = new Vector3(laneWidth, 0, 0);
+			return (a + b);
+		}
 	}
-	public Vector3 HeightFactor()
+	public Vector3 HeightFactor
 	{
-		return Camera.main.ScreenToWorldPoint(new Vector3(0, heightFactor, 0));
+		get
+		{
+			return Camera.main.ScreenToWorldPoint(new Vector3(0, heightFactor, 0));
+		}
 	}
 }
