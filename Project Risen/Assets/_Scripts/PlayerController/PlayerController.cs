@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     /*--------------------------------------------------------- Variables ------------------------------------------------------------ */
     public Rigidbody2D player;
+    public Character character;
+    public int curLane;
     [SerializeField] private LevelDetails currentLevel;
     
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
@@ -13,6 +15,9 @@ public class PlayerController : MonoBehaviour
     {
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
+        currentLevel = FindObjectOfType<LevelDetails>();
+        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
+        player.transform.position = new Vector3 (currentLevel.lanes[curLane-1].pos.x, (Screen.height/2) - (player.transform.localScale.y), 1);
     }
     
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
@@ -21,14 +26,17 @@ public class PlayerController : MonoBehaviour
     {
         PerformAction(input);
     }
+    public void OnCollisionEnter(Collision collisionInfo)
+    {
+        StopAllCoroutines();
+    }
     public void OnCollisionStay2D(Collision2D collisionInfo)
     {
-        player.constraints = RigidbodyConstraints2D.None;
-        player.constraints = RigidbodyConstraints2D.FreezeRotation;
+        player.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
     }
     public void OnCollisionExit2D(Collision2D collisionInfo)
     {
-        player.constraints = RigidbodyConstraints2D.FreezePositionY;
+        player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
 
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
@@ -43,13 +51,26 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Left");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(-currentLevel.LaneWidth());
+            if (curLane > 1)
+            {
+                StopAllCoroutines();
+                curLane--;
+                StartCoroutine(Move(currentLevel.lanes[curLane-1].pos));
+                //player.transform.position = new Vector3(currentLevel.lanes[curLane-1].pos.x, player.transform.position.y, player.transform.position.z);
+            }
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
             //Debug.Log("Right");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
-            player.transform.Translate(currentLevel.LaneWidth());
+            if (curLane < currentLevel.lanes.Length)
+            {
+                StopAllCoroutines();
+                curLane++;
+                StartCoroutine(Move(currentLevel.lanes[curLane-1].pos));
+                //player.transform.position = new Vector3(currentLevel.lanes[curLane-1].pos.x, player.transform.position.y, player.transform.position.z);
+            }
+            
         }
         else if (direction == InputManager.SwipeDirections.Up)
         {
@@ -60,6 +81,17 @@ public class PlayerController : MonoBehaviour
         {
             //Use character ultimate arts.
             Debug.Log("Unleashed ultimate arts!");
+        }
+    }
+
+    //Move player towards the destination over a fixed time.
+    private IEnumerator Move(Vector3 endPos)
+    {
+        while (player.transform.position != endPos)
+        {
+            var movement = new Vector3(endPos.x, player.transform.position.y, player.transform.position.z);
+            player.transform.position = Vector3.Lerp(player.transform.position, movement, character.Speed * Time.deltaTime);
+            yield return new WaitForSeconds(0.1f*Time.deltaTime);
         }
     }
 }

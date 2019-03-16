@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : ScriptableObject
+[CreateAssetMenu(menuName = "Risen/Character")]
+public class Character : ScriptableObject
 {
     /*--------------------------------------------------------- Variables ------------------------------------------------------------ */
     [SerializeField] private int id;
-    [SerializeField] private string name;
-    [SerializeField] private int speed;
+    [SerializeField] private string pName;
+    [SerializeField] [Range(1,5)] private int speed = 3;
     
-    public int id 
+    public int ID 
     {
         get
         {
@@ -17,16 +18,27 @@ public class Player : ScriptableObject
         }
     }
     
-    public string name
+    public string Name
     {
         get
         {
-            return name;
+            return pName;
+        }
+    }
+    public int Speed
+    {
+        get
+        {
+            return speed;
+        }
+        set
+        {
+            value = Mathf.Clamp(speed, 1, 5);
         }
     }
     
     /*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
-     
+
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
 
     /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
