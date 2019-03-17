@@ -12,8 +12,8 @@ public class ObstacleFall : MonoBehaviour {
 		obstacle = this.gameObject;
 		fallSpeed *= Screen.height/100.0f;
 	}
-	private void Update () 
+	private void FixedUpdate () 
 	{
-		obstacle.transform.position = Vector3.Lerp(obstacle.transform.position, obstacle.transform.position - new Vector3(0, 1f, 0), fallSpeed * Time.deltaTime);
+		obstacle.transform.position = Vector3.Lerp(obstacle.transform.position, obstacle.transform.position - new Vector3(0, 1f, 0), fallSpeed * Time.fixedDeltaTime);
 	}
 }

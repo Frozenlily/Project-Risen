@@ -9,7 +9,9 @@ public class ObjectScaler : MonoBehaviour
 	/*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */	
 	private void Start()
 	{
-		this.gameObject.transform.localScale*= (heightFactor/100) *(Screen.height);
+		var baseScale = this.gameObject.transform.localScale;
+		var scaleFactor = (heightFactor/100) *(Screen.height);
+		this.gameObject.transform.localScale = new Vector3(baseScale.x * scaleFactor, baseScale.y * scaleFactor, 1);
 	}
 
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */	
