@@ -26,10 +26,6 @@ public class PlayerController : MonoBehaviour
     {
         PerformAction(input);
     }
-    public void OnCollisionEnter(Collision collisionInfo)
-    {
-        StopAllCoroutines();
-    }
     public void OnCollisionStay2D(Collision2D collisionInfo)
     {
         player.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
