@@ -34,9 +34,13 @@ public class LevelDetails : MonoBehaviour
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	public void Init()
 	{
-		laneWidth = Screen.width/laneQty;
-		heightFactor = Screen.height/100;
+		laneWidth = Camera.main.ViewportToWorldPoint(Vector3.one).x/laneQty;
+		heightFactor = Camera.main.ViewportToWorldPoint(Vector3.one).y/100;
+
+		Debug.Log (laneWidth + " - Lane Width in World Value");
 		
+		Debug.Log (heightFactor + " - Height Factor in World Value (1% Height)");
+
 		lanes = new Lane[laneQty];
     
 		//Updates lane details accordingly.
@@ -44,7 +48,7 @@ public class LevelDetails : MonoBehaviour
 		foreach (Lane lane in lanes)
 		{
 			lanes[i].num = (i+1);
-			lanes[i].pos =  ((i)*LaneWidth) + (LaneWidth)/2;
+			lanes[i].pos =  ((i)*new Vector3(laneWidth, 0, 0)) + new Vector3(laneWidth, 0, 0)/2;
 			i++;
 		}
 	}
@@ -58,11 +62,11 @@ public class LevelDetails : MonoBehaviour
 			return (a + b);
 		}
 	}
-	public Vector3 HeightFactor
+	public float HeightFactor
 	{
 		get
 		{
-			return Camera.main.ScreenToWorldPoint(new Vector3(0, heightFactor, 0));
+			return heightFactor;
 		}
 	}
 }
