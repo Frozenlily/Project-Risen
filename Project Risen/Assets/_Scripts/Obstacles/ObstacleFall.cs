@@ -5,17 +5,11 @@ using UnityEngine;
 public class ObstacleFall : MonoBehaviour {
 
 	private GameObject obstacle;
-	private LevelDetails lvlDetails;
 	[SerializeField] private float fallSpeed;
-
-	private void Awake()
-	{
-		lvlDetails = FindObjectOfType<LevelDetails>();
-	}
 	private void Start()
 	{
 		obstacle = this.gameObject;
-		fallSpeed *= lvlDetails.HeightFactor; 
+		fallSpeed *= GameUnits.heightFactor;
 	}
 	private void FixedUpdate () 
 	{

@@ -23,7 +23,6 @@ public class LevelDetails : MonoBehaviour
 	public Lane[] lanes;
   
 	private float laneWidth; //Pixel width of lane.
-	private float heightFactor; //Unit of measurement; 0 - Bottom of Screen; 100 - Top of Screen. (Used for damage calculations)
 
 	/*--------------------------------------------------------- Start/Update --------------------------------------------------------- */
 	private void Awake()
@@ -35,11 +34,7 @@ public class LevelDetails : MonoBehaviour
 	public void Init()
 	{
 		laneWidth = Camera.main.ViewportToWorldPoint(Vector3.one).x/laneQty;
-		heightFactor = Camera.main.ViewportToWorldPoint(Vector3.one).y/100;
-
 		Debug.Log (laneWidth + " - Lane Width in World Value");
-		
-		Debug.Log (heightFactor + " - Height Factor in World Value (1% Height)");
 
 		lanes = new Lane[laneQty];
     
@@ -60,13 +55,6 @@ public class LevelDetails : MonoBehaviour
 			Vector3 a = Vector3.zero;
 			Vector3 b = new Vector3(laneWidth, 0, 0);
 			return (a + b);
-		}
-	}
-	public float HeightFactor
-	{
-		get
-		{
-			return heightFactor;
 		}
 	}
 }
