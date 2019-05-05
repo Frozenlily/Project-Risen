@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
         if (direction == InputManager.SwipeDirections.Left)
         {
-            //Debug.Log("Left");
+            Debug.Log("Left");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
             if (curLane > 1)
             {
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (direction == InputManager.SwipeDirections.Right)
         {
-            //Debug.Log("Right");
+            Debug.Log("Right");
             //Debug.Log(Screen.width + "; Lane: " + currentLevel.LaneWidth());
             if (curLane < currentLevel.lanes.Length)
             {

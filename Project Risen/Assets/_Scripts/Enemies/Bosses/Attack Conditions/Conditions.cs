@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraSetup : MonoBehaviour 
+public class Conditions : ScriptableObject 
 {
 	/*---------------------------------------------------------- Variables ----------------------------------------------------------- */
-
-	/*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */	
-	private void Awake()
+	public enum CondTypes
 	{
-		Camera.main.orthographicSize = Screen.height/2.0f;
-		Camera.main.transform.position = new Vector3 (Screen.width/2.0f, Screen.height/2.0f, 0);
+		None,
+		Positional,
+		HealthDepend,
+		HealthTrigger,
 	}
-
+	public CondTypes condType;
+	/*--------------------------------------------------------  Start/Update --------------------------------------------------------- */
 
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
+	public virtual bool IsConditionMet()
+	{
+		return false;
+	}
+
 }

@@ -6,14 +6,13 @@ public class ObstacleFall : MonoBehaviour {
 
 	private GameObject obstacle;
 	[SerializeField] private float fallSpeed;
-
 	private void Start()
 	{
 		obstacle = this.gameObject;
-		fallSpeed *= Screen.height/100.0f;
+		fallSpeed *= GameUnits.heightFactor;
 	}
 	private void FixedUpdate () 
 	{
-		obstacle.transform.position = Vector3.Lerp(obstacle.transform.position, obstacle.transform.position - new Vector3(0, 1f, 0), fallSpeed * Time.fixedDeltaTime);
+		obstacle.transform.position = Vector3.Lerp(obstacle.transform.position, obstacle.transform.position - new Vector3(0, 1f, 0)*fallSpeed, Time.fixedDeltaTime);
 	}
 }
