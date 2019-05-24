@@ -5,7 +5,7 @@ using UnityEngine;
 public class KnockbackManager : MonoBehaviour 
 {
     /*---------------------------------------------------------- Variables ----------------------------------------------------------- */
-    [SerializeField] private float speed = 1;
+    [SerializeField] private float speed = 15;
     [SerializeField] private int pushforce = 15;
     private Vector3 pushDistance;
     private Collider2D col;
