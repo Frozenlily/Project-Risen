@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
         currentLevel = FindObjectOfType<LevelDetails>();
-        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);        
+        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
+        ResetPosition();
     }
     ///Resets player position to center of screen.
-    public void SetPosition()
+    public void ResetPosition()
     {
         var xPos = currentLevel.lanes[curLane-1].pos.x;
         player.transform.position = new Vector3 (xPos, GameUnits.HeightFactor* 50 - (player.transform.localScale.y), 1);
