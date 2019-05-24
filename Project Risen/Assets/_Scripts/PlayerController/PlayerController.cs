@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     {
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
+        KnockbackManager.KnockbackDetected += OnKnockbackDetection;
+        
         currentLevel = FindObjectOfType<LevelDetails>();
         curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
         ResetPosition();
@@ -40,7 +42,22 @@ public class PlayerController : MonoBehaviour
     {
         player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
-
+    /*
+    ///Upon Knockback Detected, get knockback information from attacker.
+    public void OnKnockbackDetection(object source, Vector3 pushDistance, float time)
+    {
+        Knockback(pushDistance, time);
+    }
+    */
+    private IEnumerator Knockback(Vector3 endPos, time)
+    {
+        while (player.transform.position != endPos)
+        {
+            var movement = new Vector3(player.x, player.transform.position.y, player.transform.position.z);
+            player.transform.position = Vector3.Lerp(player.transform.position, movement, time * Time.deltaTime);
+            yield return new WaitForSeconds(0.1f*Time.deltaTime);
+        }
+    }
     /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
     ///Perform action based on touch input.
     private void PerformAction (InputManager.SwipeDirections direction)
