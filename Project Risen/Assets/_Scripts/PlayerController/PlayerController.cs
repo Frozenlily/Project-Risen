@@ -42,21 +42,10 @@ public class PlayerController : MonoBehaviour
     {
         player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
-    /*
     ///Upon Knockback Detected, get knockback information from attacker.
-    public void OnKnockbackDetection(object source, Vector3 pushDistance, float time)
+    public void OnKnockbackDetection(object source, Vector3 pushDistance, float speed)
     {
-        Knockback(pushDistance, time);
-    }
-    */
-    private IEnumerator Knockback(Vector3 endPos, time)
-    {
-        while (player.transform.position != endPos)
-        {
-            var movement = new Vector3(player.x, player.transform.position.y, player.transform.position.z);
-            player.transform.position = Vector3.Lerp(player.transform.position, movement, time * Time.deltaTime);
-            yield return new WaitForSeconds(0.1f*Time.deltaTime);
-        }
+        Knockback(pushDistance, speed);
     }
     /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
     ///Perform action based on touch input.
@@ -109,6 +98,16 @@ public class PlayerController : MonoBehaviour
         {
             var movement = new Vector3(endPos.x, player.transform.position.y, player.transform.position.z);
             player.transform.position = Vector3.Lerp(player.transform.position, movement, character.Speed * Time.deltaTime);
+            yield return new WaitForSeconds(0.1f*Time.deltaTime);
+        }
+    }
+    ///Moves player down with a variable speed upon knockback.
+    private IEnumerator Knockback(Vector3 endPos, float speed)
+    {
+        while (player.transform.position != endPos)
+        {
+            var movement = new Vector3(player.transform.position.x, endPos.y, player.transform.position.z);
+            player.transform.position = Vector3.Lerp(player.transform.position, movement, speed * Time.deltaTime);
             yield return new WaitForSeconds(0.1f*Time.deltaTime);
         }
     }
