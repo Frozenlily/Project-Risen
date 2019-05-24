@@ -5,8 +5,8 @@ using UnityEngine;
 public class KnockbackManager : MonoBehaviour 
 {
     /*---------------------------------------------------------- Variables ----------------------------------------------------------- */
-    [SerializeField] private float time;
-    [SerializeField] private int pushforce;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private int pushforce = 15;
     private Vector3 pushDistance;
     private Collider2D col;
     
@@ -14,6 +14,7 @@ public class KnockbackManager : MonoBehaviour
     private void Start()
     {
         pushDistance = new Vector3(0, pushForce * GameUnits.heightFactor, 0);
+        col = gameObject.GetComponent<Collider2D>();
     }
     private void Update()
     {
