@@ -16,11 +16,16 @@ public class PlayerController : MonoBehaviour
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
         currentLevel = FindObjectOfType<LevelDetails>();
-        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
-        player.transform.position = new Vector3 (currentLevel.lanes[curLane-1].pos.x, (Screen.height/2) - (player.transform.localScale.y), 1);
+        curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);        
+    }
+    ///Resets player position to center of screen.
+    public void SetPosition()
+    {
+        var xPos = currentLevel.lanes[curLane-1].pos.x;
+        player.transform.position = new Vector3 (xPos, GameUnits.HeightFactor* 50 - (player.transform.localScale.y), 1);
     }
     
-    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
+    /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
     ///Upon touch detection, get touch input information from input manager.
     public void OnTouchDetection(object source, InputManager.SwipeDirections input)
     {
@@ -35,7 +40,7 @@ public class PlayerController : MonoBehaviour
         player.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
 
-    /*--------------------------------------------------------- Functions ------------------------------------------------------------- */
+    /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
     ///Perform action based on touch input.
     private void PerformAction (InputManager.SwipeDirections direction)
     {
@@ -79,8 +84,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Unleashed ultimate arts!");
         }
     }
-
-    //Move player towards the destination over a fixed time.
+    ///Move player towards the destination over a fixed time.
     private IEnumerator Move(Vector3 endPos)
     {
         while (player.transform.position != endPos)
