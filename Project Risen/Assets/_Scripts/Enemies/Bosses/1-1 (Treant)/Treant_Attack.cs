@@ -19,7 +19,6 @@ public class Treant_Attack : MonoBehaviour
 
 	}
 
-
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	//Contains info on attack patterns
 	private void AttackPattern()
