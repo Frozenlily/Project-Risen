@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Risen/Boss/Conditions/Positional")]
-public class Positional : Conditions
+[CreateAssetMenu(menuName = "Risen/Attacks/Conditions/Positional")]
+public class Positional : Condition
 {
 	/*---------------------------------------------------------- Variables ----------------------------------------------------------- */
 	public enum AdditionType
@@ -14,12 +14,11 @@ public class Positional : Conditions
 	public AdditionType addType = AdditionType.More;
 	public float threshold = 0f;
 	/*--------------------------------------------------------  Start/Update --------------------------------------------------------- */
-	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	public Positional () : base()
 	{
 		base.condType = CondTypes.Positional;
 	}
-
+	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	public override bool IsConditionMet()
 	{
 		if(addType == AdditionType.Less)

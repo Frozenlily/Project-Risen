@@ -19,11 +19,12 @@ public class Treant_Attack : MonoBehaviour
 
 	}
 
-
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	//Contains info on attack patterns
 	private void AttackPattern()
 	{
+		
+
 		/* START
 		Attack 1: Great Swing (Melee)
 			Condition: Player.Pos > 40% (Screen)
