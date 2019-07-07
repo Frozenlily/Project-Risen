@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Conditions : ScriptableObject 
+public class Condition : ScriptableObject 
 {
 	/*---------------------------------------------------------- Variables ----------------------------------------------------------- */
 	public enum CondTypes

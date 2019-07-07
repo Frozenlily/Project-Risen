@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthDepend : Conditions 
+[CreateAssetMenu(menuName = "Risen/Attacks/Conditions/HealthDepend")]
+public class HealthDepend : Condition 
 {
 	/*---------------------------------------------------------- Variables ----------------------------------------------------------- */
 	public enum AdditionType
@@ -16,17 +17,15 @@ public class HealthDepend : Conditions
 	/*--------------------------------------------------------  Start/Update --------------------------------------------------------- */
 	public HealthDepend () : base()
 	{
-		base.condType = CondTypes.Positional;
+		base.condType = CondTypes.HealthDepend;
 	}
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
 	///Checks if Condition has been met.
 	public override bool IsConditionMet()
 	{
-		/* START
-
 		if(addType == AdditionType.Less)
 		{
-			if (GameObject.FindObjectOfType<Boss>().Health <= threshold)
+			if (GameObject.FindObjectOfType<Enemy_Boss>().HealthRatio <= threshold)
 			{
 				return true;
 			}
@@ -34,7 +33,7 @@ public class HealthDepend : Conditions
 		}
 		if(addType == AdditionType.More)
 		{
-			if (GameObject.FindObjectOfType<Boss>().Health >= threshold)
+			if (GameObject.FindObjectOfType<Enemy_Boss>().HealthRatio >= threshold)
 			{
 				return true;
 			}
@@ -42,13 +41,12 @@ public class HealthDepend : Conditions
 		}
 		if(addType == AdditionType.Equal)
 		{
-			if (GameObject.FindObjectOfType<Boss>().Health == threshold)
+			if (GameObject.FindObjectOfType<Enemy_Boss>().HealthRatio == threshold)
 			{
 				return true;
 			}
 			return false;
 		}
-		END */
 		return false;
 	}
 }

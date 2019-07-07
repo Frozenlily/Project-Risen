@@ -5,8 +5,8 @@ using UnityEngine;
 public class KnockbackManager : MonoBehaviour 
 {
     /*---------------------------------------------------------- Variables ----------------------------------------------------------- */
-    [SerializeField] private float speed = 15;
-    [SerializeField] private int pushforce = 15;
+    [SerializeField] private float speed = 30f;
+    [SerializeField] private int pushForce = 15;
     private Vector3 pushDistance;
     private Collider2D col;
     
@@ -14,18 +14,15 @@ public class KnockbackManager : MonoBehaviour
     private void Start()
     {
         pushDistance = new Vector3(0, pushForce * GameUnits.heightFactor, 0);
-        col = gameObject.GetComponent<Collider2D>();
-    }
-    private void Update()
-    {
-        KnockbackDetected();   
+        col = this.gameObject.GetComponent<Collider2D>();
     }
     /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
-    private void OnTriggerEnter(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
             OnKnockbackDetection();
+            //Destroy(this.gameObject);
         }
     }
     /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
@@ -34,6 +31,6 @@ public class KnockbackManager : MonoBehaviour
     
     public virtual void OnKnockbackDetection()
     {
-        KnockbackDetected(pushDistance, speed);
+        KnockbackDetected(this, pushDistance, speed);
     }
 }

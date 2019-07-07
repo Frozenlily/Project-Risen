@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TestChecker : MonoBehaviour {
 
-	public Conditions conditionToCheck;
+	public Condition conditionToCheck;
+
+	public Condition bossCondition;
 
 	private void Start()
 	{
@@ -27,6 +29,10 @@ public class TestChecker : MonoBehaviour {
 			Destroy(GameObject.FindObjectOfType<PlayerController>().gameObject);
 			Time.timeScale = 0f;
 			Destroy(this.gameObject);
+		}
+		if (bossCondition.IsConditionMet())
+		{
+			Debug.Log("Boss hp below x value.");
 		}
 	}
 }
