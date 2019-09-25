@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         //Event Subscriptions
         InputManager.TouchDetected += OnTouchDetection;
-        KnockbackManager.KnockbackDetected += OnKnockbackDetection;
+        KnockbackHandler.KnockbackDetected += OnKnockbackDetection;
  
         currentLevel = FindObjectOfType<LevelDetails>();
         curLane = Mathf.CeilToInt(currentLevel.lanes.Length / 2.0f);
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     }
     
     /*--------------------------------------------------------- Functions ------------------------------------------------------------ */
-    ///Upon touch detection, get touch input information from input manager.
+    ///Upon touch detection, get touch input information from input manager and perform action.
     public void OnTouchDetection(object source, InputManager.SwipeDirections input)
     {
         PerformAction(input);
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     ///Upon Knockback Detected, get knockback information from attacker.
     public void OnKnockbackDetection(object source, Vector3 pushDistance, float speed)
     {
-        if (!isInvincible && !isKnockback)
+        if (!isInvincible /*&& !isKnockback */) //Checks if player is invincible or already being knocked back.
         {
             StartCoroutine(Knockback(pushDistance, speed));
         }

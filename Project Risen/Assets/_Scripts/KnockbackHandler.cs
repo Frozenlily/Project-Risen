@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnockbackManager : MonoBehaviour 
+public class KnockbackHandler : MonoBehaviour 
 {
     /*---------------------------------------------------------- Variables ----------------------------------------------------------- */
-    [SerializeField] private float speed = 30f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private int pushForce = 15;
     private Vector3 pushDistance;
     private Collider2D col;

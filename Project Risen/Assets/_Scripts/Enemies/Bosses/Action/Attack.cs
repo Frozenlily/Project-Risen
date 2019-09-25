@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : StateMachineBehaviour
+public class Attack : ScriptableObject
 {
     /*---------------------------------------------------------- Functions ----------------------------------------------------------- */
     ///Runs the code to perform the attack here.

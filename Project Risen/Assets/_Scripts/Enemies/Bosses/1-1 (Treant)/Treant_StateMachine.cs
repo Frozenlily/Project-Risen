@@ -2,25 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Treant_Attack : MonoBehaviour 
+public class Treant_StateMachine : MonoBehaviour 
 {
 	/*--------------------------------------------------------- Variables ------------------------------------------------------------ */
 	private Animator animator;
+	private enum State
+	{
+		Idle = 0,
+		GreatSwing,
+		RockToss,
+		AppleBarrage
+	}
 	private float GU = GameUnits.heightFactor;
+	private Animation[] attackAnimations;
 
 	/*-------------------------------------------------------- Start/Update ---------------------------------------------------------- */
 	private void Init()
 	{
-
+		
 	}
-	
 	private void Start()
 	{
-
+		
 	}
 
 	/*---------------------------------------------------------- Functions ----------------------------------------------------------- */
-	//Contains info on attack patterns
+	///Contains info on attack patterns
 	private void AttackPattern()
 	{
 		
